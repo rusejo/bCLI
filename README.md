@@ -16,7 +16,7 @@ From August 29 to September 4th.
 - [ ] Improve its functionality and see what else can be done.
 - [ ] Review and debugging. 
 
-### Teorical
+### Theoretical
 From September 5th to  September 14.
 - [ ] Document all the process on a file/Github.
 - [ ] Formulate the business case.
