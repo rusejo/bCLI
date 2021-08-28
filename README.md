@@ -1,6 +1,6 @@
 # Blockchained Command Line Interface (bCLI)
 
-This will be the develoment process diary for this project, which is the last instalment for the course of Blockchain from the University Anáhuac México in colaboration with Dr. Barry Cumbie, from the University of Alabama on the United States.
+This will be the develoment process diary and final repository for this project, which is the last instalment for the course of Blockchain from the University Anáhuac México in colaboration with Dr. Barry Cumbie, from the University of Alabama on the United States.
 
 ## Objetive
 Extend the functionality of blockchain concepts into the command line of the OS in order to register all the activities on the chain. 
