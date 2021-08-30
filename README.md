@@ -11,8 +11,9 @@ This is gonna be a only a prototype of blockchained OS system command line inter
 ## Development process
 ### Technical
 From August 29 to September 4th. 
-- [ ] Develop a CLI on Node.js and explore all that can be done on it.
-- [ ] Find a way to integrate the functionality of the blockchain with the CLI.
+- [X] Develop a CLI on Node.js and explore all that can be done on it.
+- [ ] Upgrade the code in order to show the commands and be on a network.
+- [ ] Find a way to integrate the functionality of the blockchain with the CLI by upgrading its methods.
 - [ ] Improve its functionality and see what else can be done.
 - [ ] Review and debugging. 
 
