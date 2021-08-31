@@ -13,7 +13,7 @@ This is gonna be a only a prototype of blockchained OS system command line inter
 From August 29 to September 4th. 
 - [X] Develop a CLI on Node.js and explore all that can be done on it - _achieved on August, 29_.
 - [X] Upgrade the code in order to parse the inputed commands - _achieved on August, 30_.
-- [ ] Upgrade the code in order to be on a networked command lines (al least three).
+- [ ] Upgrade the code in order create command lines instances (at least three).
 - [ ] Find a way to integrate the functionality of the blockchain with the CLI by upgrading its methods.
 - [ ] Improve its functionality and see what else can be done.
 - [ ] Review and debugging. 
