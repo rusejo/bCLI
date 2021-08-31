@@ -56,4 +56,5 @@ The following code resumes all of this:
 
 [Electron official page](https://www.electronjs.org/docs/api/ipc-renderer)
 
+[Get Hostname](https://stackoverflow.com/questions/7507015/get-hostname-of-current-request-in-node-js-express/7507507#7507507)
 
