@@ -31,19 +31,19 @@ From September 5th to  September 14.
 ## Development process: journey
 
 ### Setting the base app.
-First, I have to follow [this tutorial](https://www.youtube.com/watch?v=vhDBbbMJWoY) to create a prototype of a command line interface (CLI) using Electron and Xterm. In it, I had to install some npm packages, like:
+First, I had to follow [this tutorial](https://www.youtube.com/watch?v=vhDBbbMJWoY) to create a prototype of a command line interface (CLI) using Electron and Xterm. In the project folder, I had to install some npm packages, like:
 
 ```
 npm i electron
 npm i electron-tools
 npm i node-pty xterm 
 ```
-As the code giving me the error due to VB compiler, the same way as in the tutorial, also I had to install `npm i electron-rebuild`to rebuild the electron package and be able to run the app. 
+As the code giving me the error due to VB compiler, the same way as in the tutorial, also I had to install `npm i electron-rebuild` and rebuild the electron package to be able to run the app. All of this was hard because I had some dependencies version failures. Even I had to test it also in Linux to figure out the problem.
 
 ### Parse the CLI arguments
-The default code of the electron app runs well, but the first challenge to resolve is how can I parse the command arguments that I introduce in order to sending them after to a blockchained process? 
+Once the app is running, the first challenge to resolve is how can I parse the command arguments that I introduce in order to sending them after to a blockchained process? We just need the commands, not all the printed ones that we get as soon as we type on it.
 
-This process needs first capture on Javascript the event of the enter action and then use ipc method to comunicate this action between the rendered file and the process file.  As the command line takes each of the keystrokes that we introduce as a character, I need to capture it when I hit enter, save it on a variable and sending it into the blockchained process; then clear the variable content to start over again each time. 
+It needs first capture on Javascript the event of the enter action and then use ipc method to comunicate this action between the rendered file and the process file. As the command line takes each of the keystrokes that we introduce as a character, I need to capture it when I hit enter, save it on a variable and sending it into the blockchained process; then clear the variable content to start over again each time. 
 
 The following code resumes all of this:
 
