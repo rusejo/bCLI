@@ -58,3 +58,4 @@ The following code resumes all of this:
 
 [Get Hostname](https://stackoverflow.com/questions/7507015/get-hostname-of-current-request-in-node-js-express/7507507#7507507)
 
+[Express and Electron](https://www.it-swarm-es.com/es/node.js/como-usar-electron-con-una-aplicacion-express-existente/808567082/)
