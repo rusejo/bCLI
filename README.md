@@ -14,7 +14,7 @@ Extend the functionality of blockchain concepts into the command line of the OS 
 From August 29 to September 4th. 
 - [X] Develop a CLI on Node.js and explore all that can be done on it - _achieved on August, 29_.
 - [X] Upgrade the code in order to parse the inputed commands - _achieved on August, 30_.
-- [ ] Find a way to integrate the functionality of the blockchain with the CLI by upgrading its methods.
+- [ ] Find a way to integrate the functionality of the blockchain with the CLI by upgrading its methods and structure.
 - [ ] Upgrade the code to figure a way to create more command lines instances (at least three).
 - [ ] Improve its functionality and see what else can be done.
 - [ ] Review and debugging. 
@@ -50,7 +50,7 @@ The following code resumes all of this:
 On `index.js`
 
 ``` javascript
-//Variable to concatenate the keystrockes of the command
+//Variable to concatenate the keystrokes of the command
 var command = "";
 var term = new Terminal();
 term.open(document.getElementById('terminal'));
@@ -77,6 +77,11 @@ On `main.js`
 
 ### Integrate Blockchain
 
+Further actions...
+
+- Create a catalog to relate the command with his "value". This will provide information about the type of work on the CLI to the administrator.
+- Modify the structure of the blockchain genesis to add the command information
+- Verify and think whether use the methods of the Blockchain as plain functions or analyze if Express can be combined with Electron and implement it. 
 
 ### Resources
 
