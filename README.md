@@ -11,7 +11,7 @@ Extend the functionality of blockchain concepts into the command line of the OS 
 
 ## Development process: resume
 ### Technical
-From August 29 to September 4th. 
+From August 29 to September 5th. 
 - [X] Develop a CLI on Node.js and explore all that can be done on it - _achieved on August, 29_.
 - [X] Upgrade the code in order to parse the inputed commands - _achieved on August, 30_.
 - [ ] Find a way to integrate the functionality of the blockchain with the CLI by upgrading its methods and structure.
