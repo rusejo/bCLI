@@ -77,20 +77,43 @@ On `main.js`
 
 ### Enhacing bCLI as a REST API
 
-Ok. By now a I can get the commands, but how can be used. The basic blockchain code uses POST and GET operations to manage the information. So, in order to integrate the CLI with the blockchain code, I need to turn the app in a REST API backend. I read [this article](https://medium.com/@keshavagrawal/electron-js-react-js-express-js-b0fb2aa8233f) to get the explanation of how to do it on my proyect, and followed up [this tutorial](https://expressjs.com/es/starter/hello-world.html) to achieve it.
+Ok. By now a I can get the commands, but how can be used. The basic blockchain code uses POST and GET operations to manage the information. So, in order to integrate the CLI with the blockchain code, I need to turn the app in a REST API backend. I've read [this article](https://medium.com/@keshavagrawal/electron-js-react-js-express-js-b0fb2aa8233f) to get the explanation of how to do it on my proyect, and followed up [this tutorial](https://expressjs.com/es/starter/hello-world.html) to achieve on it.
 
 First, on the project, we need to install `npm i express --save`, to save it as a dependecy.
 
-Th
+Create a `app.js` to act a a server:
 
+``` javascript
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
+```
+Then create the file `renderer.js` to spawn the server on `app.js`
+
+``` javascript
+let server = require('./app');
+```
+And finally, on `index.html` load the previous file.
+
+``` HTML
+<script src="./renderer.js"></script>
+```
+
+By doing this, when I execute the bCLI, the express server will be loaded simultaneously with the app. Back-end and front-end ready!
 
 ###
 
 Further actions...
 
-- Create a catalog to relate the command with his "value". This will provide information about the type of work on the CLI to the administrator.
 - Modify the structure of the blockchain genesis to add the command information
-- Verify and think whether use the methods of the Blockchain as plain functions or analyze if Express can be combined with Electron and implement it. 
 
 ### Resources
 
