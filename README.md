@@ -47,6 +47,37 @@ It needs first capture on Javascript the event of the enter action and then use 
 
 The following code resumes all of this:
 
+On `index.js`
+
+``` javascript
+//Variable to concatenate the keystrockes of the command
+var command = "";
+var term = new Terminal();
+term.open(document.getElementById('terminal'));
+
+//Send command string to the Blockchained process
+var input = document.getElementById("terminal");
+input.addEventListener("keyup", function (event, data) {
+    if (event.keyCode === 13) {
+        ipc.send('terminal.command', command);
+        //Clean the command variable
+        command = "";
+    }
+});
+```
+
+On `main.js`
+``` javascript
+//Recive command from terminal
+    var ipc = require('electron').ipcMain;
+    ipc.on('terminal.command', function (event, data) {
+        //Further actions
+    });
+```
+
+### Integrate Blockchain
+
+
 ### Resources
 
 [Identify a javascript keystroke](https://www.codegrepper.com/code-examples/javascript/javascript+function+to+save+an+entry+after+clicking+enter
