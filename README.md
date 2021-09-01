@@ -75,7 +75,16 @@ On `main.js`
     });
 ```
 
-### Integrate Blockchain
+### Enhacing bCLI as a REST API
+
+Ok. By now a I can get the commands, but how can be used. The basic blockchain code uses POST and GET operations to manage the information. So, in order to integrate the CLI with the blockchain code, I need to turn the app in a REST API backend. I read [this article](https://medium.com/@keshavagrawal/electron-js-react-js-express-js-b0fb2aa8233f) to get the explanation of how to do it on my proyect, and followed up [this tutorial](https://expressjs.com/es/starter/hello-world.html) to achieve it.
+
+First, on the project, we need to install `npm i express --save`, to save it as a dependecy.
+
+Th
+
+
+###
 
 Further actions...
 
