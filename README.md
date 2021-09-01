@@ -15,7 +15,9 @@ From August 29 to September 4th.
 - [X] Develop a CLI on Node.js and explore all that can be done on it - _achieved on August, 29_.
 - [X] Upgrade the code in order to parse the inputed commands - _achieved on August, 30_.
 - [ ] Find a way to integrate the functionality of the blockchain with the CLI by upgrading its methods and structure.
-- [ ] Upgrade the code to figure a way to create more command lines instances (at least three).
+- Be able to integrate the CLI with a API REST functionality (Express). - _achieved on September, 1st_.
+- Be able to manage the functionality over HTTP or "web calls" by integrating the code.
+- Be able to create at least two instances of bCLI.
 - [ ] Improve its functionality and see what else can be done.
 - [ ] Review and debugging. 
 
