@@ -16,7 +16,7 @@ From August 29 to September 4th.
 - [X] Upgrade the code in order to parse the inputed commands - _achieved on August, 30_.
 - [ ] Find a way to integrate the functionality of the blockchain with the CLI by upgrading its methods and structure.
 - Be able to integrate the CLI with a API REST functionality (Express). - _achieved on September, 1st_.
-- Be able to manage the functionality over HTTP or "web calls" by integrating the code.
+- Be able to manage the functionality over HTTP or "web calls" by integrating with the Blockchain code.
 - Be able to create at least two instances of bCLI.
 - [ ] Improve its functionality and see what else can be done.
 - [ ] Review and debugging. 
