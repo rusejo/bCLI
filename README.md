@@ -8,6 +8,7 @@ Extend the functionality of blockchain concepts into the command line of the OS 
 ## Scope
 - This is gonna be only a prototype of blockchained OS system command line interface.
 - It can run on Windows, MacOS and Linux.
+- As an early prototype, it will only accept simple stringed commands, like `ls`, `dir`, `cls`, `clear` or `pwd`, for example.
 
 ## Development process: resume
 ### Technical
