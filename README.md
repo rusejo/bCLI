@@ -16,9 +16,10 @@ From August 29 to September 5th.
 - [X] Upgrade the code in order to parse the inputed commands - _achieved on August, 30_.
 - [ ] Find a way to integrate the functionality of the blockchain with the CLI by upgrading its methods and structure.
 - Be able to integrate the CLI with a API REST functionality (Express). - _achieved on September, 1st_.
-- Be able to manage the functionality over HTTP or "web calls" by integrating with the Blockchain code.
-- Be able to create at least two instances of bCLI.
+- Be able to manage the functionality over HTTP or "web calls". - _achieved on September, 2nd_.
+- Integrate the functionality with the Blockchain code.
 - [ ] Improve its functionality and see what else can be done.
+- Be able to create at least two instances of bCLI.
 - [ ] Review and debugging. 
 
 ### Theoretical
@@ -111,7 +112,27 @@ And finally, on `index.html` load the previous file.
 
 By doing this, when I execute the bCLI, the express server will be loaded simultaneously with the app. Back-end and front-end ready!
 
-###
+### Handling HTTP methods and responses (GET and POST).
+
+In order to request HTTP calls to send nd recieve information, as the Blockchain code does, we need to establish that communication channel between the `main.js` and de `app.js` or where the calls will be. For that purpose, we need the [axios library](https://nodejs.dev/learn/make-an-http-post-request-using-nodejs) by installing `npm i axios`.
+
+Then, right after we recieve the command from the prompt, on `main.js` add:
+
+``` javascript
+//POST or GET Request
+        axios
+            .post/get('URL', {
+                command: data
+            })
+            .then(res => {
+                console.log(res);
+            })
+            .catch(error => {
+                console.error(error)
+            })
+```
+
+In order to diplay the proper information passed through the POST method, on the `app.js`, we need to include a body parser `app.use(express.json());`, and get the responde by `req.body.command`.
 
 Further actions...
 
