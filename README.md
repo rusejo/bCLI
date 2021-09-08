@@ -19,13 +19,16 @@ From August 29 to September 5th.
 - Be able to integrate the CLI with a API REST functionality (Express). - _achieved on September, 1st_.
 - Be able to manage the functionality over HTTP or "web calls". - _achieved on September, 2nd_.
 - Integrate the functionality with the Blockchain code.
+    - Add a new transaction - _achieved on September, 7_.
+    - Mine a new transaction - _achieved on September, 7_.
+    - Boradcast transaction - _on course_. 
 - [ ] Improve its functionality and see what else can be done.
 - Be able to create at least two instances of bCLI.
 - [ ] Review and debugging. 
 
 ### Theoretical
 From September 5th to  September 14.
-- [ ] Document all the process on a file/Github.
+- [ ] Document all the process on a file/Github. - _on course_
 - [ ] Formulate the business case.
 - [ ] Generate the presentation and record the demo.
 - [ ] Final review.
