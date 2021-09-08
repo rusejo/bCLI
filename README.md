@@ -21,7 +21,7 @@ From August 29 to September 5th.
 - Integrate the functionality with the Blockchain code.
     - Add a new transaction - _achieved on September, 7_.
     - Mine a new transaction - _achieved on September, 7_.
-    - Boradcast transaction - _on course_. 
+    - Broadcast transaction - _on course_. 
 - [ ] Improve its functionality and see what else can be done.
 - Be able to create at least two instances of bCLI.
 - [ ] Review and debugging. 
@@ -138,9 +138,90 @@ Then, right after we recieve the command from the prompt, on `main.js` add:
 
 In order to diplay the proper information passed through the POST method, on the `app.js`, we need to include a body parser `app.use(express.json());`, and get the responde by `req.body.command`.
 
+### bCLI Blockchain structure
+
+To the prototype of Blockchain, we add the command data on it.
+
+```javascript
+Blockchain.prototype.createNewBlock = function (nonce, previousBlockHash, hash, command) {
+    //Constants variables
+    const newBlock = {
+        index: this.chain.length + 1, //What block is this in out chain.
+        timestamp: Date.now(),
+        transactions: this.pendingTransactions, //All of the transactions on this block.
+        nonce: nonce, //Unique number (only used once). Proof that we actually create a legit block.
+        hash: hash, //The data from our new block.
+        previousBlockHash: previousBlockHash, //Data from our current block hashed into a string
+        //The OS command
+        command: command
+    };
+
+    this.pendingTransactions = []; //Clears out any pendingTransactions
+    this.chain.push(newBlock); //Add the newBlock to the chain.
+
+    return newBlock;
+}
+```
+
+And update its methods in order to use it, like:
+
+```Javascript
+Blockchain.prototype.createNewTransaction = function (amount, sender, recipient,command) {
+    const newTransaction = {
+        //Create a new transaction object
+        amount: amount,
+        sender: sender,
+        recipient: recipient,
+        command:command,
+        transactionId: uuidv4().split('-').join('')
+    };
+    return newTransaction;
+    //Save data into the transactions array.
+   // this.pendingTransactions.push(newTransaction);
+   // return this.getLastBlock()['index'] + 1; //Get the index of the last block of out chain plus one for a new block
+}
+```
+Now, in order to use it, right after `main.js` catches the comand from the renderer, we collect the data and send it to the API call:
+
+```javascript
+//Recive command from terminal
+    var ipc = require('electron').ipcMain;
+    ipc.on('terminal.command', function (event, data) {
+        const blockData = [{
+            "amount": 1,
+            "sender": "localhost.com",
+            "recipient": "server.com",
+            "command": data
+        }];
+        //Add a transaction
+        axios
+            .post('http://localhost:3000/transaction', {
+                command: blockData
+            })
+            .then(res => {
+                console.log(res);
+            })
+            .catch(error => {
+                console.error(error)
+            });
+            //Mine the transaction
+            axios
+            .get('http://localhost:3000/mine', {
+            })
+            .then(res => {
+                console.log(res);
+            })
+            .catch(error => {
+                console.error(error)
+            })
+        console.log(bcli);
+    });
+```
+
 Further actions...
 
-- Modify the structure of the blockchain genesis to add the command information
+- Find a way to use argv[] on Electron to be able to catch automaticly the port.
+- Create multiple instances of bCLI to broadcast the chain. 
 
 ### Resources
 
