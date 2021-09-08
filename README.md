@@ -175,7 +175,7 @@ Blockchain.prototype.createNewBlock = function (nonce, previousBlockHash, hash, 
 And update its methods in order to use it, like:
 
 ```Javascript
-Blockchain.prototype.createNewTransaction = function (amount, sender, recipient,command) {
+Blockchain.prototype.createNewTransaction = function (amount, sender, recipient, command) {
     const newTransaction = {
         //Create a new transaction object
         amount: amount,
@@ -229,7 +229,6 @@ On `app.js`, we add all the Blockchain API calls. Now, in order to use it, right
 
 Further actions...
 
-- Find a way to use argv[] on Electron to be able to catch automaticly the port.
 - Create multiple instances of bCLI to broadcast the chain. 
 
 ### Resources
