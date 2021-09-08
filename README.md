@@ -138,6 +138,15 @@ Then, right after we recieve the command from the prompt, on `main.js` add:
 
 In order to diplay the proper information passed through the POST method, on the `app.js`, we need to include a body parser `app.use(express.json());`, and get the responde by `req.body.command`.
 
+### Setting up the server
+
+In order to use the blockchain structure, we need to have a server up on a certain point (by now). To achieve that, we installed `npm i nodemon` and configure the `package.json` to be able to be ready. We add the following line to rthe scripts section of the file:
+
+```javascript
+"server":"app.js 3001 http://localhost:3001",
+```
+So, with that, we need to run first `npm run server` and after excecute out CLI. Then we'll have everything to proceed to the next part.
+
 ### bCLI Blockchain structure
 
 To the prototype of Blockchain, we add the command data on it.
