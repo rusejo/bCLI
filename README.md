@@ -181,7 +181,7 @@ Blockchain.prototype.createNewTransaction = function (amount, sender, recipient,
    // return this.getLastBlock()['index'] + 1; //Get the index of the last block of out chain plus one for a new block
 }
 ```
-Now, in order to use it, right after `main.js` catches the comand from the renderer, we collect the data and send it to the API call:
+On `app.js`, we add all the Blockchain API calls. Now, in order to use it, right after `main.js` catches the comand from the renderer, we collect the data and send it to the API call:
 
 ```javascript
 //Recive command from terminal
