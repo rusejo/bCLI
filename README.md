@@ -18,17 +18,18 @@ From August 29 to September 10th.
 - [ ] Find a way to integrate the functionality of the blockchain with the CLI by upgrading its methods and structure.
 - Be able to integrate the CLI with a API REST functionality (Express). - _achieved on September, 1st_.
 - Be able to manage the functionality over HTTP or "web calls". - _achieved on September, 2nd_.
+    - Setting up the server to listening on a port - _achieved on September, 8th_.
 - Integrate the functionality with the Blockchain code.
     - Add a new transaction - _achieved on September, 7th_.
     - Mine a new transaction - _achieved on September, 7th_.
-    - Broadcast transaction - _on course_. 
+    - Broadcast transaction - _on development_. 
 - [ ] Improve its functionality and see what else can be done.
 - Be able to create at least two instances of bCLI.
 - [ ] Review and debugging. 
 
 ### Theoretical
 From September 5th to  September 14.
-- [ ] Document all the process on a file/Github. - _on course_
+- [ ] Document all the process on a file/Github. - _on development_
 - [ ] Formulate the business case.
 - [ ] Generate the presentation and record the demo.
 - [ ] Final review.
