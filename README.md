@@ -241,24 +241,81 @@ On `main.js`, we need to run rhe client once the app is ready.
 ```javascript
 app.on("ready", function(){
     createWindow();
-    client.create(mainWindow, {port:parseInt(puertoServidor)+5});
+    client.create(mainWindow);
 });
 ```
 
 On `app.js`, add the server instruction:
 
 ```javascript
-var electron = require('electron-connect').server.create({ port: parseInt(port) + 5 });
+var electron = require('electron-connect').server.create();
 ```
 
 #### The 'Port communication problem'.
 
+So far, when we run the application with nodemon, it wakes up and automatically creates a service listening to the client on a certain process port thanks to the electron-connect module. But if we try to run another instance, we get an error, because the port is occupied by the first instance. You would think that you could dynamically add the ports by taking them from the nodemon command argument and specifying them in the client and server instructions. This is possible in `app.js`, but not for `main.js`.
 
+The application architecture does not facilitate communication between the process and the server, as it is limited by the application architecture, even when using socket communication or global variables. To solve this problem, the viable solution would be to obtain the listening port through GET requests to the server from the main process and once there assign them to the corresponding instructions. 
 
-Translated with www.DeepL.com/Translator (free version)
+As we want this request to be separate from the Blockchain process requests, we need to create a small server extension from the original that listens on a specific port (different from the one indicated in nodemon). Therefore, in `app.js`, we add: 
 
+``` javascript
+const http = require('http');
+const server = http.createServer(app);
+server.listen(8080, function () {
+    console.log("Port information service")
+});
+```
+And on `main.js`, when the app is launched:
 
-- Create multiple instances of bCLI to broadcast the chain. 
+```javascript
+const http = require('http');
+    http.get('http://localhost:8080/port',(res)=>{
+        res.on('data',(d)=>{
+           puertoServidor = d.toString('utf8');
+        })
+    })
+```
+
+As we have already obtained the port, it only remains to place it in its respective locations. In order to be dynamic and not to be repeated in the instances, we will add five to the port number received from the argument, being a different one each time it is executed. 
+
+On `main.js`, we add the client port
+
+```javascript
+const http = require('http');
+    http.get('http://localhost:8080/port',(res)=>{
+        res.on('data',(d)=>{
+           puertoServidor = d.toString('utf8');
+        })
+    })
+    client.create(mainWindow, {port:parseInt(puertoServidor)+5});
+```
+
+On `app.js`, add the server port
+
+```javascript
+var electron = require('electron-connect').server.create({port:parseInt(puertoServidor)+5});
+```
+
+With these instructions, we can now tell the electron-connect service to run on a different port each time another instance of the application is launched. 
+
+However, now we face the same port traffic problem but in the small server we created for the communication between the process and the server: if two instances are executed, the second one will not be able to get the information because the first one is occupying the port. What we need is that once the execution of an instance is started and the request is launched, the process receives that data, and the server, after a certain time, closes the connection and releases the port, thus allowing another instance to be executed and can occupy the port to request the information. 
+
+For this, a timer was added to control the service. After 10 seconds of execution, it closes. This is added on the request part on the server `app.js`:
+
+```javascript
+app.get('/port', (req, res) => {
+    res.send(port);
+    
+    (function countDown(counter) {
+        while (counter > 0) {
+            console.log(counter)
+            return setTimeout(countDown, 1000, counter - 1)
+        }server.close();
+        })(10);
+});
+```
+With the latter, and with its limitations, we can finally run as many instances as we specify using nodemon commands. 
 
 ### Resources
 
