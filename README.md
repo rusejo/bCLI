@@ -253,7 +253,7 @@ var electron = require('electron-connect').server.create();
 
 #### The 'Port communication problem'.
 
-So far, when we run the application with nodemon, it wakes up and automatically creates a service listening to the client on a certain process port thanks to the electron-connect module. But if we try to run another instance, we get an error, because the port is occupied by the first instance. You would think that you could dynamically add the ports by taking them from the nodemon command argument and specifying them in the client and server instructions. This is possible in `app.js`, but not for `main.js`.
+So far, when we run the application with nodemon, it wakes up and automatically creates a service listening to the client on a certain process port thanks to the electron-connect module. But if we try to run another instance, we get an error, because the port is occupied by the first instance. You would think that you could dynamically add the ports by taking them from the nodemon command argument and specifying them in the client and server instructions. This is possible in `app.js`, but not for `main.js`, because we are using nodemon with the first one secript.
 
 The application architecture does not facilitate communication between the process and the server, as it is limited by the application architecture, even when using socket communication or global variables. To solve this problem, the viable solution would be to obtain the listening port through GET requests to the server from the main process and once there assign them to the corresponding instructions. 
 
