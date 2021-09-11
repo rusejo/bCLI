@@ -23,7 +23,7 @@ From August 29 to September 10th.
     - Add a new transaction - _achieved on September, 7th_.
     - Mine a new transaction - _achieved on September, 7th_.
     - Broadcast transaction - _on development_. 
-- [ ] Improve its functionality and see what else can be done.
+- [X] Improve its functionality and see what else can be done - _achieved on September, 10th_.
 - Be able to create at least two instances of bCLI.
 - [ ] Review and debugging. 
 
