@@ -299,7 +299,7 @@ var electron = require('electron-connect').server.create({port:parseInt(puertoSe
 
 With these instructions, we can now tell the electron-connect service to run on a different port each time another instance of the application is launched. 
 
-However, now we face the same port traffic problem but in the small server we created for the communication between the process and the server: if two instances are executed, the second one will not be able to get the information because the first one is occupying the port. What we need is that once the execution of an instance is started and the request is launched, the process receives that data, and the server, after a certain time, closes the connection and releases the port, thus allowing another instance to be executed and can occupy the port to request the information. 
+However, now we face the same port traffic problem but in the small server we created for the communication between the process and the server: if two instances are executed, the second one will not be able to get the port information because the first one is occupying the port. What we need is that once the execution of an instance is started and the request is launched, the process receives that data, and the server, after a certain time, closes the connection and releases the port, thus allowing another instance to be executed and can occupy the port to request the information. 
 
 For this, a timer was added to control the service. After 10 seconds of execution, it closes. This is added on the request part on the server `app.js`:
 
