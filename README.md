@@ -228,7 +228,35 @@ On `app.js`, we add all the Blockchain API calls. Now, in order to use it, right
     });
 ```
 
-Further actions...
+### Multiple bCLI instances.
+
+The idea was simple: run multiple applications, each listening to its own server. Up to this point we already have Express installed, and with nodemon running, we can pull up as many servers as we want along with their ports. However, we have only one electron application. What we need are several instances of that application running on different servers, each on its own port.
+
+For this point, nodemon has a limitation: we can't run both scripts at the same time; either we monitor the server script or the application script. However, we need nodemon to monitor the server script because that is where it gets the port. The solution was not easy.
+
+The solution found is a module that performs the same process but for applications made in Electron. With this, it is possible to raise a service at the same time that the application is running. So, we installed `npm i electron-connect`. Once installed, the client will be the main application process, in `main.js`, and the server in `app.js`. In each of them, we add the instructions to run as such. 
+
+On `main.js`, we need to run rhe client once the app is ready. 
+
+```javascript
+app.on("ready", function(){
+    createWindow();
+    client.create(mainWindow, {port:parseInt(puertoServidor)+5});
+});
+```
+
+On `app.js`, add the server instruction:
+
+```javascript
+var electron = require('electron-connect').server.create({ port: parseInt(port) + 5 });
+```
+
+#### The 'Port communication problem'.
+
+
+
+Translated with www.DeepL.com/Translator (free version)
+
 
 - Create multiple instances of bCLI to broadcast the chain. 
 
