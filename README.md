@@ -12,26 +12,26 @@ Extend the functionality of blockchain concepts into the command line of the OS 
 
 ## Development process: resume
 ### Technical
-From August 29 to September 10th. 
+From August 29 to September 11th. 
 - [X] Develop a CLI on Node.js and explore all that can be done on it - _achieved on August, 29_.
 - [X] Upgrade the code in order to parse the inputed commands - _achieved on August, 30_.
-- [ ] Find a way to integrate the functionality of the blockchain with the CLI by upgrading its methods and structure.
+- [X] Find a way to integrate the functionality of the blockchain with the CLI by upgrading its methods and structure - _  full achieved on September, 11th_.
 - Be able to integrate the CLI with a API REST functionality (Express). - _achieved on September, 1st_.
 - Be able to manage the functionality over HTTP or "web calls". - _achieved on September, 2nd_.
     - Setting up the server to listening on a port - _achieved on September, 8th_.
 - Integrate the functionality with the Blockchain code.
     - Add a new transaction - _achieved on September, 7th_.
     - Mine a new transaction - _achieved on September, 7th_.
-    - Broadcast transaction - _on development_. 
+    - Broadcast transaction - _achieved on September, 11th_.
 - [X] Improve its functionality and see what else can be done - _achieved on September, 10th_.
 - Be able to create at least two instances of bCLI.
-- [ ] Review and debugging. 
+- [X] Review and debugging. 
 
 ### Theoretical
 From September 5th to  September 14.
 - [ ] Document all the process on a file/Github. - _on development_
-- [ ] Formulate the business case.
-- [ ] Generate the presentation and record the demo.
+- [ ] Formulate the business case. - _on development_
+- [ ] Generate the presentation and record the demo. - _on development_
 - [ ] Final review.
 - [ ] Pack all the files and upload them on Github.
 - [ ] Send the email with al the project info to Dr. Barry on **September 14**. 
@@ -316,6 +316,31 @@ app.get('/port', (req, res) => {
 });
 ```
 With the latter, and with its limitations, we can finally run as many instances as we specify using nodemon commands. 
+
+### Broadcast a transaction.
+
+What we want is that, once the application is launched, it connects to the network of the other available terminals. To do this, we add in an array with the available terminals (in the future, the list can be consulted directly from the system files, for example, in UNIX/Linux OS, from the `/etc/hosts` file) and iterate the reigistration with the network members excluding itself. We do this on the process file `main.js`, when the app is ready, at the same time when we get the port information from the server file.
+
+```javascript
+//Register on a network at launch
+
+            var fullNetwork = [3000,3001];
+            var currentNetwork = fullNetwork.filter(function(x){return x !== parseInt(puertoServidor)})
+            for (let networkNode of currentNetwork) {
+                axios
+                    .post(`http://localhost:${puertoServidor}/register-node`,
+                        { "newNodeUrl": "http://localhost:" + networkNode },
+                        {})
+                    .then(res => {
+                        console.log("tty registered")
+                    })
+                    .catch(error => {
+                        console.error("error")
+                    });
+            }
+```
+
+Then, when the application is up, we access a GET request with axios to make the connections with the network members. With the latter, everything we do and the transactions/commands we execute inside the terminal will be registered in the chain and sent to all the members of the network that are connected. 
 
 ### Resources
 
