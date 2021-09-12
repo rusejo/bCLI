@@ -230,7 +230,7 @@ On `app.js`, we add all the Blockchain API calls. Now, in order to use it, right
 
 ### Multiple bCLI instances.
 
-The idea was simple: run multiple applications, each listening to its own server. Up to this point we already have Express installed, and with nodemon running, we can pull up as many servers as we want along with their ports. However, we have only one electron application. What we need are several instances of that application running on different servers, each on its own port.
+This was the hardest part of the project. The idea was simple: run multiple applications, each listening to its own server. Up to this point we already have Express installed, and with nodemon running, we can pull up as many servers as we want along with their ports. However, we have only one electron application. What we need are several instances of that application running on different servers, each on its own port.
 
 For this point, nodemon has a limitation: we can't run both scripts at the same time; either we monitor the server script or the application script. However, we need nodemon to monitor the server script because that is where it gets the port. The solution was not easy.
 
