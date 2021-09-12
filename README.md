@@ -25,7 +25,7 @@ From August 29 to September 11th.
     - Broadcast transaction - _achieved on September, 11th_.
 - [X] Improve its functionality and see what else can be done - _achieved on September, 11th_.
 - Be able to create at least two instances of bCLI. - _achieved on September, 10th_.
-- [X] Review and debugging _achieved on September, 11th_. 
+- [X] Review and debugging. - _achieved on September, 11th_. 
 
 ### Theoretical
 From September 5th to  September 14.
