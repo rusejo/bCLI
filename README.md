@@ -30,7 +30,7 @@ From August 29 to September 11th.
 ### Theoretical
 From September 5th to  September 14.
 - [X] Document all the process on a file/Github. - _achieved on September, 11th_.
-- [ ] Formulate the business case. - _achieved on September, 13th_.
+- [X] Formulate the business case. - _achieved on September, 13th_.
 - [ ] Generate the presentation and record the demo. - _on development_
 - [ ] Final review.
 - [ ] Pack all the files and upload them on Github.
