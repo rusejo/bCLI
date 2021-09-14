@@ -1,0 +1,32 @@
+{
+  "name": "bcli",
+  "version": "1.0.0",
+  "description": "Blockchained Command Line Interface",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "tty0": "nodemon app.js 3000 http://localhost:3000",
+    "tty1": "nodemon app.js 3001 http://localhost:3001",
+    "rebuild": "electron-rebuild"
+  },
+  "author": "Rusejo",
+  "license": "",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "electron-connect": "^0.6.3",
+    "electron-rebuild": "^1.11.0",
+    "electron-tools": "^2.4.2",
+    "express": "^4.17.1",
+    "js-sha256": "^0.9.0",
+    "node-pty": "^0.9.0",
+    "nodemon": "^2.0.12",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "socket.io": "^4.2.0",
+    "uuid": "^8.3.2",
+    "xterm": "^4.8.1"
+  },
+  "devDependencies": {
+    "electron": "^9.2.0"
+  }
+}
