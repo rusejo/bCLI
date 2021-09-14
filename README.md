@@ -1,6 +1,6 @@
 # Blockchained Command Line Interface (bCLI)
 
-This is the repository of the Blockchained Command Line Interface (bCLI) project. In order to test it, please follow the instructions below. This projects works on Windows, Linux or MacOS.
+This is the repository of the [Blockchained Command Line Interface (bCLI)](https://gist.github.com/rusejo/f79268f33812dfaffef7d3caebd1ab4a#View) project. In order to test it, please follow the instructions below. This projects works on Windows, Linux or MacOS.
 
 ## Installation
 
