@@ -14,7 +14,7 @@ This is the repository of the [Blockchained Command Line Interface (bCLI)](https
 
 By default, in the `package.json` file we have two instances working on ports 3000 and 3001. In order to successfully raise the two terminals you must wait at least five seconds between the two.
 
-   1. Run the first terminal with `npm run tty0`. A port error window will pop up. Don't worry, you can close it without any problem.
+   1. Run the first terminal with `npm run tty0`. A port error window will pop up. Don't worry, you can close it without any problem. You can watch in the console log the time you have to wait before execute the second instance.
 
    2. After five seconds, start the second terminal with `npm run tty1`. Still, accept the error to close the window that pops up.
 
